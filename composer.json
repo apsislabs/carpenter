@@ -1,0 +1,13 @@
+{
+    "name": "apsislabs/carpenter",
+    "description": "WordPress plugin template for adding custom post types.",
+    "license": "MIT",
+    "minimum-stability": "dev",
+    "authors": [
+        {
+            "name": "Wyatt Kirby",
+            "email": "wyatt@apsis.io"
+        }
+    ],
+    "require": {}
+}
