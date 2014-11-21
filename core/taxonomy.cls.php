@@ -1,7 +1,6 @@
 <?php
 
 class Taxonomy {
-
     protected $slug;
     protected $singular;
     protected $plural;

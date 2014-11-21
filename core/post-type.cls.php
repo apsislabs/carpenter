@@ -1,7 +1,6 @@
 <?php
 
 class PostType {
-
     protected $slug;
     protected $singular;
     protected $plural;
