@@ -1,17 +1,19 @@
 <?php
 
-if ( class_exists('Carpenter') ) {
+if ( function_exists('build_post_types') ) {
     $postTypeData = array(
-        'slug' => array(
+        'post_type_slug' => array(
             'singular'   => 'Post Type',
             'plural'     => 'Post Types',
             'options'    => array(),
             'taxonomies' => array(
-                'taxonomy' => array(
+                'taxonomy_slug' => array(
                     'singular' => 'Taxonomy',
                     'plural'   => 'Taxonomies'
                 )
             )
         )
     );
+
+    build_post_types($postTypeData);
 }

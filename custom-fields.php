@@ -1,5 +1,5 @@
 <?php
 
-if(function_exists("register_field_group"))
+if ( function_exists("register_field_group") )
 {
 }
