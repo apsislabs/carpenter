@@ -2,7 +2,7 @@
 
 /**
  * Plugin Name: Carpenter
- * Version: 1.0.2
+ * Version: 1.0.4
  * Author: Apsis Labs
  * Author URI: www.apsis.io
  */
