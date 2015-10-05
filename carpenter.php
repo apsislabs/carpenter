@@ -2,7 +2,7 @@
 
 /**
  * Plugin Name: Carpenter
- * Version: 1.0.4
+ * Version: 1.1.0
  * Author: Apsis Labs
  * Author URI: www.apsis.io
  */
@@ -15,7 +15,13 @@ if ( ! class_exists('aps_carpenter') ) {
             include_once('core/post-type.cls.php');
             include_once('core/taxonomy.cls.php');
             include_once('core/carpenter.cls.php');
+            include_once('core/updater.cls.php');
         }
+    }
+
+    if ( is_admin() ) {
+        // Check for Update on GitHub
+        new CarpenterUpdater( __FILE__, 'apsislabs', 'carpenter' );
     }
 
     new aps_carpenter();
