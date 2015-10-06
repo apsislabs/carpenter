@@ -55,7 +55,8 @@ class CarpenterUpdater {
         $this->initPluginData();
         $this->getRepoReleaseInfo();
 
-        $doUpdate = version_compare($this->githubAPIResult->tag_name, $transient->checked[$this->slug]);
+        // Check if Update Needed
+        $doUpdate = version_compare($this->githubAPIResult->tag_name, $transient->checked[$this->slug], '>');
 
         if ($doUpdate) {
             $package = $this->githubAPIResult->zipball_url;

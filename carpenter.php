@@ -16,12 +16,12 @@ if ( ! class_exists('aps_carpenter') ) {
             include_once('core/taxonomy.cls.php');
             include_once('core/carpenter.cls.php');
             include_once('core/updater.cls.php');
-        }
-    }
 
-    if ( is_admin() ) {
-        // Check for Update on GitHub
-        new CarpenterUpdater( __FILE__, 'apsislabs', 'carpenter' );
+            if ( is_admin() ) {
+                // Check for Update on GitHub
+                new CarpenterUpdater( __FILE__, 'apsislabs', 'carpenter' );
+            }
+        }
     }
 
     new aps_carpenter();
