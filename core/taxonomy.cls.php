@@ -101,16 +101,21 @@ class Taxonomy {
         foreach ($this->defaults as $slug => $term) {
             if ( !get_term_by('slug', $slug, $this->slug) ) {
 
-                $options = isset($term['options']) ? wp_parse_args($term['options'], array(
+                print_r($term);
+                $options = isset($term['options']) ? $term['options'] : array();
+
+                $options = wp_parse_args($options, array(
                     'description' => null,
                     'slug' => $slug,
                     'parent' => 0
-                )) : null;
+                ));
 
                 if ( is_string($options['parent']) ) {
                     $parent = get_term_by('slug', $options['parent'], $this->slug);
                     $options['parent'] = $parent ? $parent->term_id : 0;
                 }
+
+                echo $options['slug'];
 
                 // Format the Name
                 $name = isset($term['name']) ? (string) $term['name'] : $this->createLabel($slug);
