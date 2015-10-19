@@ -90,6 +90,7 @@ class Taxonomy {
     public function defaultActionsRow($actions, $term) {
         if ( in_array($term->slug, array_keys($this->defaults)) ) {
             $actions = array(
+                'edit' => $actions['edit'],
                 'view' => $actions['view']
             );
         }
