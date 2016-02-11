@@ -14,7 +14,7 @@ class Taxonomy {
         $this->slug     = isset($slug) ? $slug : $name;
         $this->singular = isset($singular) ? $singular : $this->createLabel($name);
         $this->plural   = isset($plural) ? $plural : $this->createLabel($name);
-        $this->defaults = isset($defaults) ? $defaults : null;
+        $this->defaults = isset($defaults) ? $defaults : array();
 
         $options = ( isset($options) && is_array($options) ) ? $options : array();
 
