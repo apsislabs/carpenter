@@ -35,7 +35,6 @@ class Taxonomy {
     public function register() {
         if ( ! taxonomy_exists($this->slug) ) {
             register_taxonomy( $this->slug, $this->postType, $this->options );
-
             if ( $this->defaults ) {
                 $this->registerDefaults();
             }
@@ -101,12 +100,10 @@ class Taxonomy {
     protected function registerDefaults() {
         foreach ($this->defaults as $slug => $term) {
             if ( !get_term_by('slug', $slug, $this->slug) ) {
-
-                print_r($term);
                 $options = isset($term['options']) ? $term['options'] : array();
 
                 $options = wp_parse_args($options, array(
-                    'description' => null,
+                    'description' => "",
                     'slug' => $slug,
                     'parent' => 0
                 ));
@@ -115,8 +112,6 @@ class Taxonomy {
                     $parent = get_term_by('slug', $options['parent'], $this->slug);
                     $options['parent'] = $parent ? $parent->term_id : 0;
                 }
-
-                echo $options['slug'];
 
                 // Format the Name
                 $name = isset($term['name']) ? (string) $term['name'] : $this->createLabel($slug);
