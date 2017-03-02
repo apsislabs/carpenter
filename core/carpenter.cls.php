@@ -8,7 +8,6 @@ class Carpenter {
 
     function __construct( Array $postTypeData ) {
         $this->postTypeData = $postTypeData;
-        $this->acfCheck();
         $this->setupPostTypes();
         $this->setupTaxonomies();
     }
@@ -30,15 +29,5 @@ class Carpenter {
         foreach ($this->taxonomyData as $taxonomy => $args) {
             $this->taxonomies[] = new Taxonomy($taxonomy, $args['postTypes'], $args['taxArgs']);
         }
-    }
-
-    function acfCheck() {
-        if ( ! function_exists("register_field_group") ) {
-            add_action( 'admin_notices', array($this, 'acfNotice'));
-        }
-    }
-
-    function acfNotice() {
-        printf('<div class="error"><p>%s</p></div>', esc_html( 'Your custom post types are activated, but will not work properly unless you install and activate Advanced Custom Fields.', 'carpenter-wp' ));
     }
 }
