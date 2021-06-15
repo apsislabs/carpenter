@@ -27,7 +27,7 @@ if ( function_exists('build_post_types') ) {
                                 'description' => 'A default term — this cannot be deleted by users.'
                             )
                         ),
-                        'child_term_slug' array(
+                        'child_term_slug' => array(
                             'name' => 'Default Child Term',
                             'options' => array(
                                 'parent' => 'term_slug' // parents are assigned by slug
